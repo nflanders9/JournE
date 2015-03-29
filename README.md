@@ -5,4 +5,4 @@ Simply enter a group of keywords describing the music you want to listen to, you
 
 This project was made as part of the Make BU 2015 hackathon.
 
-A version of this project is hosted at nflanders9.github.io/JournE/landing.html
+A version of this project is hosted <a href="http://nflanders9.github.io/JournE/landing.html">here.</a>
