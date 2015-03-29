@@ -16,7 +16,11 @@ body {
   position: absolute;
   z-index: -1; 
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: inherit;
+    font-size: 50px;
+    color: white;
+    line-height: 40px;
+    margin-bottom:25px;
 }
 
 .text-muted {
@@ -45,7 +49,7 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: white;
 }
 
 a:hover,
