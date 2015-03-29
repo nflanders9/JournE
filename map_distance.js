@@ -11,7 +11,7 @@ valueArray = []
 for (index in stringArray) {
   string = stringArray[index]
   var value = string.substring(string.indexOf("=") + 1)
-  if (index == 2) {
+  if (index == 3) {
     value = value.substring(0, value.length - 1)
   }
   valueArray[index] = value
@@ -20,6 +20,7 @@ for (index in stringArray) {
 var genre = JSON.stringify(valueArray[0])
 var start = JSON.stringify(valueArray[1])
 var dest = JSON.stringify(valueArray[2])
+var mode = JSON.stringify(valueArray[3])
 
 
 
@@ -42,7 +43,9 @@ function initialize() {
 
 function calculateDistances() {
   var service = new google.maps.DistanceMatrixService();
-  service.getDistanceMatrix(
+
+  if (mode ==='"DRIVING"') {
+    service.getDistanceMatrix(
     {
       origins: [origin1],
       destinations: [destinationA],
@@ -51,6 +54,44 @@ function calculateDistances() {
       avoidHighways: false,
       avoidTolls: false
     }, callback);
+  }
+
+  else if (mode ==='"WALKING"') {
+    service.getDistanceMatrix(
+    {
+      origins: [origin1],
+      destinations: [destinationA],
+      travelMode: google.maps.TravelMode.WALKING,
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
+      avoidHighways: false,
+      avoidTolls: false
+    }, callback);
+  }
+
+    else if (mode ==='"BICYCLING"') {
+    service.getDistanceMatrix(
+    {
+      origins: [origin1],
+      destinations: [destinationA],
+      travelMode: google.maps.TravelMode.BICYCLING,
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
+      avoidHighways: false,
+      avoidTolls: false
+    }, callback);
+  }
+
+    else if (mode ==='"TRANSIT"') {
+    service.getDistanceMatrix(
+    {
+      origins: [origin1],
+      destinations: [destinationA],
+      travelMode: google.maps.TravelMode.TRANSIT,
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
+      avoidHighways: false,
+      avoidTolls: false
+    }, callback);
+  }
+  
 }
 
 function callback(response, status) {
